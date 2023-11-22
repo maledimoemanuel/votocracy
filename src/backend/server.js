@@ -2,11 +2,9 @@ const express = require('express');
 const mysql = require('mysql2');
 const cors  = require('cors');
 const cookieParser = require('cookie-parser'); // Use require for CommonJS
-const dotenv = require('dotenv');
+require('dotenv').config()
 
 const jwt = require("jsonwebtoken");
-
-dotenv.config();
 
 const app = express();
 app.use(cors(
@@ -18,6 +16,8 @@ app.use(cors(
 ))
 app.use(express.json());
 app.use(cookieParser());
+
+console.log(process.env.USER)
 
 const db = mysql.createPool({
     host: process.env.HOST,
