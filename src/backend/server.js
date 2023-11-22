@@ -17,8 +17,6 @@ app.use(cors(
 app.use(express.json());
 app.use(cookieParser());
 
-console.log(process.env.USER)
-
 const db = mysql.createPool({
     host: process.env.HOST,
     user: process.env.USER,
